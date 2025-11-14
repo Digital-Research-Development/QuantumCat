@@ -17,10 +17,10 @@ module.exports = {
   },
   networks: {
     hardhat: {
-      chainId: 31337,
-      forking: process.env.MAINNET_FORK
+      chainId: 8453, // Base mainnet chainId
+      forking: process.env.BASE_FORK
         ? {
-            url: process.env.MAINNET_RPC_URL || "",
+            url: process.env.BASE_RPC_URL || "https://mainnet.base.org",
           }
         : undefined,
     },
@@ -86,8 +86,8 @@ module.exports = {
     coinmarketcap: process.env.COINMARKETCAP_API_KEY || "",
     outputFile: process.env.GAS_REPORT_FILE || undefined,
     noColors: process.env.CI === "true",
-    token: "ETH",
-    gasPriceApi: "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice",
+    token: "ETH", // Base uses ETH for gas
+    L2: "base", // Specify Base L2
   },
   contractSizer: {
     alphaSort: true,
